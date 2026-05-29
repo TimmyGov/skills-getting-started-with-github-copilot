@@ -31,6 +31,7 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| DELETE | `/activities/{activity_name}/participants?email=student@mergington.edu` | Unregister a participant from an activity                           |
 
 ## Data Model
 
@@ -48,3 +49,21 @@ The application uses a simple data model with meaningful identifiers:
    - Grade level
 
 All data is stored in memory, which means data will be reset when the server restarts.
+
+## Backend Tests
+
+Backend tests live in the top-level `tests/` directory and use `pytest` with the Arrange-Act-Assert (AAA) pattern.
+
+1. Install dependencies:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. Run backend tests:
+
+   ```
+   pytest tests -v
+   ```
+
+When adding tests, structure each one with clear `Arrange`, `Act`, and `Assert` sections.
